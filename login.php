@@ -1,18 +1,18 @@
 <?php
-session_start();
+// session_start();
 
-$accounts = [
-    'user1' => '1',
-    'user2' => '2',
-];
+// $accounts = ['user1' => '1', 'user2' => '2',]; (INI PAKAI ARRAY)
+
+$email = 'akmal';
+$pass ='123';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-
-    if (isset($accounts[$username]) && $accounts[$username] === $password) {
-        $_SESSION['login'] = $username;
+    if ($email == $username && $pass == $password) {
+    // if (isset($accounts[$username]) AND $accounts[$username] === $password) { (INI PAKAI ARRAY)
+        // $_SESSION['login'] = $username;
 
         header('Location: welcome.php');
         exit();
@@ -20,10 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Username atau password salah!";
     }
 }
-if (isset($_SESSION['login'])) {
-    header('Location: welcome.php');
-    exit();
-}
+// if (isset($_SESSION['login'])) {
+//     header('Location: welcome.php');
+//     exit();
+// }
 ?>
 
 <!DOCTYPE html>
